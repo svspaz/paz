@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+{% load widget_tweaks %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>SVS</title>
+  <style type="text/css">
+       body {
+      color: #dimgrey;
+      background-color: #3d3d3d;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    .note {
+      text-align: center;
+      height: 80px;
+      background:black;
+      color: #fff;
+      font-weight: bold;
+      line-height: 80px;
+    }
+
+    .form-content {
+      font-family: "Lato", sans-serif;
+    outline: 0;
+    background: #e7e4e4;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    }
+
+    .form-control {
+      border-radius: 1.5rem;
+    }
+
+    .btnSubmit {
+      font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #262725;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    }
+
+    .btnSubmit :hover,.form button:active,.form button:focus {
+    background: #3d3d3d;
+  }
+
+.login {
+  width: 500px;
+  padding: 10% 0 0;
+  margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+.form input {
+    font-family: "Lato", sans-serif;
+    outline: 0;
+    background: #e7e4e4;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+.form button {
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #262725;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+
+.form button:hover,.form button:active,.form button:focus {
+    background: #3d3d3d;
+  }
+
+.form .registration-form {
+    display: none;
+  }
+
+
+  </style>
+  </style>
+
+</head>
+
+
+<body>
+  {% include "mypage/navbar.html" %}
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+  <form method="post">
+    {% csrf_token %}
+    <div class="container register-form">
+      <div class="form">
+        <div class="note">
+          <p>REGISTER NEW OSA ADMIN</p>
+        </div>
+
+        <div class="form-content">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field form.first_name class="form-control" placeholder="First Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field form.username class="form-control" placeholder="Username" %}
+              </div>
+
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                {% render_field form.last_name class="form-control" placeholder="Last Name" %}
+              </div>
+              <div class="form-group">
+                {% render_field form.password class="form-control" placeholder="Password" %}
+              </div>
+
+            </div>
+          </div>
+          <button type="submit" class="btnSubmit">Submit</button>
+          <div class="text-center">Already have an account? <a href="adminlogin">Login here</a></div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+
+
+</body>
+
+</html>

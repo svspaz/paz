@@ -1,0 +1,66 @@
+{% extends 'mypage/admin_base.html' %}
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <style media="screen">
+    a:link {
+      text-decoration: none;
+    }
+    .panel-heading {
+      background: linear-gradient(30deg, #0d0d0d, #73b4ff);
+    }
+    h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Student</h6>
+    </div>
+    <table class="table table-hover" id="dev-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          
+          <th>Violation</th>
+          <th>Remaining Hours in Service</th>
+          <th>Schedule Day</th>
+          <th>Number of Hours Perday</th>
+          <th>Year</th>
+          <th>Course</th>
+
+          <th>Update</th>
+          
+        </tr>
+      </thead>
+      {% for p in students %}
+      <tr>
+        <td> {{p.get_name}}</td>
+        
+        <td>{{p.violation}}</td>
+        <td>{{p.service}}</td>
+        <td>{{p.scheduleday}}</td>
+        <td>{{p.hoursperday}}</td>
+        <td>{{p.year}}</td>
+        <td>{{p.course}}</td>
+        <td><a class="btn btn-primary btn-xs" href="{% url 'update-student' p.id  %}"><span class="glyphicon glyphicon-edit"></span></a></td>
+        
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+
+{% endblock content %}

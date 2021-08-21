@@ -1,0 +1,72 @@
+{% extends 'mypage/admin_base.html' %}
+{% load static %}
+{% block content %}
+{%include 'mypage/admin_dashboard_cards.html'%}
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary col-md-5" style="margin-left:2%;">
+      <div class="panel-heading" style="text-align:center;background: black;">
+        <h6 class="panel-title">List of Teachers</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+
+            <th>Status</th>
+
+          </tr>
+        </thead>
+        {% for d in teachers %}
+        <tr>
+          <td> {{d.get_name}}</td>
+          <td>{{d.department}}</td>
+
+          {%if d.status%}
+          <td> <span class="label label-primary">On List</span></td>
+          {% else %}
+          <td> <span class="label label-success">On Hold</span></td>
+          {% endif %}
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="panel panel-primary col-md-5" style="margin-left:5%;">
+      <div class="panel-heading" style="text-align:center; background: black;">
+        <h6 class="panel-title">List of Student</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Year</th>
+            <th>Status</th>
+
+          </tr>
+        </thead>
+        {% for p in students %}
+        <tr>
+          <td> {{p.get_name}}</td>
+          <td>{{p.course}}</td>
+          <td>{{p.year}}</td>
+          {%if p.status%}
+          <td> <span class="label label-primary">Onlist</span></td>
+          {% else %}
+          <td> <span class="label label-success">On Hold</span></td>
+          {% endif %}
+
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock content %}

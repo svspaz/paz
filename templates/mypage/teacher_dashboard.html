@@ -1,0 +1,53 @@
+{% extends 'mypage/teacher_base.html' %}
+{% load static %}
+{% block content %}
+{%include 'mypage/teacher_dashboard_cards.html'%}
+
+<head>
+  <style type="text/css">
+
+
+    .panel-heading {
+      background: linear-gradient(10deg, #080808, #59e0c5);
+    }
+
+
+
+
+  ></style>
+
+
+
+</head>
+<br><br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="panel panel-primary" style="margin-left:15%;">
+      <div class="panel-heading" style="text-align:center;">
+        <h6 class="panel-title">Recent Message/Request for you</h6>
+      </div>
+      <table class="table table-hover" id="dev-table">
+        <thead>
+          <tr>
+            <th>Student Name</th>
+            
+            <th>Description</th>
+          
+            <th>Date</th>
+          </tr>
+        </thead>
+        {% for a,p in appointments %}
+        <tr>
+          <td>{{a.studentName}}</td>
+          
+          <td>{{a.description}}</td>
+          <td>{{a.appointmentDate}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
